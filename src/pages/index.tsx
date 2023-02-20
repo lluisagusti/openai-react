@@ -1,4 +1,3 @@
-// import "./App.css
 import { Configuration, OpenAIApi } from 'openai'
 import OptionSelection from '../components/OptionSelection'
 import Translation from '../components/Translation'
@@ -9,8 +8,9 @@ import type { NextPage } from 'next'
 const Home: NextPage = (): JSX.Element => {
   
   const configuration = new Configuration({
-    organization: "org-3tYGd4NnpNwjT8XO544bwiV9",
-    apiKey: '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',
+    // api key should be in the env file!
+    // visit https://platform.openai.com/docs/api-reference/introduction
+    apiKey: '',
   })
 
   const openai = new OpenAIApi(configuration);
@@ -22,7 +22,7 @@ const Home: NextPage = (): JSX.Element => {
     setOption(option);
   }
 
-  const doStuff = async () => {
+  const doAction = async () => {
     let object: any = { ...option, prompt: input }
 
     const response = await openai.createCompletion(object)
@@ -35,7 +35,7 @@ const Home: NextPage = (): JSX.Element => {
       {Object.values(option).length === 0 ? (
         <OptionSelection arrayItems={arrayItems} selectOption={selectOption} />
       ) : (
-        <Translation doStuff={doStuff} setInput={setInput} result={result} />
+        <Translation doAction={doAction} setInput={setInput} result={result} />
       )}
     </div>
   )
