@@ -17,7 +17,7 @@ const Home: NextPage = (): JSX.Element => {
   const configuration = new Configuration({
     // api key should be in the env file!
     // visit https://platform.openai.com/docs/api-reference/introduction
-    apiKey: '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',
+    apiKey: '',
   })
 
   const openai = new OpenAIApi(configuration)
