@@ -120,7 +120,7 @@ a {
 } */
 
 .heading {
-  font-family: Poppins;
+  /* font-family: Poppins; */
 }
 
 .grid-main {
@@ -143,12 +143,10 @@ a {
 }
 
 .grid-child h3 {
-  font-family: Poppins;
   font-weight: 700;
 }
 
 .grid-child p {
-  font-family: Poppins;
   font-weight: 500;
   font-size: 15px;
 }
@@ -156,19 +154,17 @@ a {
 .text-area {
   font-size: 20px;
   padding: 10px;
-  font-family: Poppins;
 }
 
 .action-btn {
   width: 200px;
   height: 50px;
-  font-size: 20px;
+  font-size: 15px;
   margin-top: 20px;
   cursor: pointer;
 }
 
 .result-text {
-  font-family: Poppins;
   font-size: 25px;
   line-height: 2.5rem;
 }
