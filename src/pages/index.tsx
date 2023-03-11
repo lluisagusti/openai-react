@@ -24,6 +24,7 @@ const Home: NextPage = (): JSX.Element => {
   const option = chatGPTDavinci3Values
   const [result, setResult] = useState<any>('')
   const [input, setInput] = useState<any>('')
+  const [isNewQuery, setIsNewQuery] = useState<boolean>(false)
 
 
   const doAction = async () => {
@@ -36,12 +37,18 @@ const Home: NextPage = (): JSX.Element => {
     const response = await openai.createCompletion(object)
 
     setResult(response.data.choices[0].text)
+    setIsNewQuery(true)
+  }
+
+  const handleUploadInput = (stringInput: string) => {
+    setInput(stringInput)
+    setIsNewQuery(false)
   }
 
   return (
     <div className="App">
       <h3 style={{ textAlign: 'center', paddingTop: '3em' }}>OpenAI Positive Untill death!</h3>
-        <InputArea doAction={doAction} setInput={setInput} result={result} input={input} />
+        <InputArea doAction={doAction} setInput={handleUploadInput} result={result} input={input} isNewQuery={isNewQuery} />
     </div>
   )
 }
