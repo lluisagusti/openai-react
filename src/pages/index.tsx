@@ -1,5 +1,6 @@
 import { Configuration, OpenAIApi } from 'openai'
 import InputArea from '../components/InputArea'
+import ResultArea from '../components/ResultArea'
 import { useState } from 'react'
 import type { NextPage } from 'next'
 
@@ -17,7 +18,7 @@ const Home: NextPage = (): JSX.Element => {
   const configuration = new Configuration({
     // api key should be in the env file!
     // visit https://platform.openai.com/docs/api-reference/introduction
-    apiKey: '',
+    apiKey: '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',
   })
 
   const openai = new OpenAIApi(configuration)
@@ -48,7 +49,8 @@ const Home: NextPage = (): JSX.Element => {
   return (
     <div className="App">
       <h3 style={{ textAlign: 'center', paddingTop: '3em' }}>OpenAI Positive Untill death!</h3>
-        <InputArea doAction={doAction} setInput={handleUploadInput} result={result} input={input} isNewQuery={isNewQuery} />
+        <InputArea doAction={doAction} setInput={handleUploadInput} />
+        <ResultArea result={result} input={input} isNewQuery={isNewQuery} />
     </div>
   )
 }
